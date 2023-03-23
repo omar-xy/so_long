@@ -6,7 +6,7 @@
 #    By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/31 15:33:52 by otaraki           #+#    #+#              #
-#    Updated: 2023/03/21 19:42:36 by otaraki          ###   ########.fr        #
+#    Updated: 2023/03/22 17:24:33 by otaraki          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ CFLAGS = -Wall -Wextra -Werror
 INC = so_long.h \
 
 SRC = so_long.c game.c\
-	check_map_wall.c check_inside_map.c\
+	check_map_wall.c check_inside_map.c ch_path.c\
 	gnl/get_next_line.c \
 	gnl/get_next_line_utils.c\
 	ft_error.c\

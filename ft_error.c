@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 19:58:13 by otaraki           #+#    #+#             */
-/*   Updated: 2023/03/21 18:00:11 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/03/23 00:11:43 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ void	ft_error(int E, t_long	*data)
 	else if (E == 3)
 	{
 		write(2, "cant open file\n", 15);
-		free_tow_d(data->map);
 		exit (1);
 	}
 	else
 	{
+		write(2, "PATH INVALID\n", 13);
 		free_tow_d(data->map);
 		exit (1);
 	}

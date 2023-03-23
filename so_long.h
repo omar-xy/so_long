@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 15:32:42 by otaraki           #+#    #+#             */
-/*   Updated: 2023/03/21 20:29:41 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/03/22 23:34:45 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,37 +22,33 @@
 # include "libft/libft.h"
 # include "gnl/get_next_line.h"
 
-typedef struct	s_data {
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}				t_data;
-
-typedef struct s_long
-{
-	char	**map;
-	int		collec;
-	int		ply;
-	int		exit;
-	int		empt;
-	int		wall;
-	int		height;
-	int		width;
-}				t_long;
-
 typedef struct s_coord
 {
 	int	x;
 	int	y;
 }				t_coord;
 
+typedef struct s_long
+{
+	t_coord	cor_ply;
+	t_coord	cor_exit;
+	char	**map;
+	int		collec;
+	int		ply;
+	int		exit;
+	int		height;
+	int		width;
+}				t_long;
+
+
 // parsing_utils
 void	ft_error(int E, t_long *data);
 void	check_map_wall(t_long *data);
 void	check_into_map(t_long *data);
 void	free_tow_d(char **map);
-void 	get_started_map(t_long *data);
+void	get_started_map(t_long *data);
+void	is_valid(char **data, int x, int y, char c);
+char	**copy_data(t_long *data);
+int		check_path(char **data, char c);
 
 #endif

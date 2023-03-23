@@ -6,23 +6,43 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 19:56:44 by otaraki           #+#    #+#             */
-/*   Updated: 2023/03/21 18:06:37 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/03/23 00:06:51 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	check_for_dup(t_long	*data)
+static	void	check_for_dup(t_long	*data)
 {
 	if (data->ply != 1)
-	{
-		write(2, "one player required\n", 20);
-		ft_error(4, data);
-	}
+		ft_error(2, data);
 	else if (data->exit != 1)
+		ft_error(2, data);
+}
+
+static void	get_pos(t_long *data)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (data->map[i])
 	{
-		write(2, "one exit required\n", 18);
-		ft_error(4, data);
+		j = -1;
+		while (data->map[i][++j])
+		{
+			if (data->map[i][j] == 'P')
+			{
+				data->cor_ply.x = j;
+				data->cor_ply.y = i;
+			}
+			if (data->map[i][j] == 'E')
+			{
+				data->cor_exit.x = j;
+				data->cor_exit.y = i;
+			}
+		}
+		i++;
 	}
 }
 
@@ -43,14 +63,11 @@ void	check_into_map(t_long *data)
 				data->exit++;
 			else if (data->map[i][j] == 'C')
 				data->collec++;
-			else if (data->map[i][j] == '0')
-				data->empt++;
-			else if (data->map[i][j] == '1')
-				data->wall++;
-			else
+			else if (data->map[i][j] != '1' && data->map[i][j] != '0')
 				ft_error(2, data);
 			j++;
 		}
 	}
 	check_for_dup(data);
+	get_pos(data);
 }
