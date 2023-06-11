@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 19:58:13 by otaraki           #+#    #+#             */
-/*   Updated: 2023/03/23 00:11:43 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/06/10 17:09:58 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	ft_error(int E, t_long	*data)
 	if (E == 1)
 	{
 		write(2, "MAP NOT VALID\n", 14);
-		free_tow_d(data->map);
 		exit (1);
 	}
 	else if (E == 2)

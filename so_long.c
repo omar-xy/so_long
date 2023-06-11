@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 12:02:37 by otaraki           #+#    #+#             */
-/*   Updated: 2023/03/23 00:15:34 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/06/11 17:55:05 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,33 +36,32 @@ void	ft_get_map(char *av, t_long *data)
 	close(fd);
 }
 
-static void	path_validate(char **map, t_long *data)
+static void	set_map(t_long *data)
 {
 	char	**str;
 
-	is_valid(map, data->cor_ply.x, data->cor_ply.y, 'E');
-	if (check_path(map, 'E') == -1)
-		ft_error(4, data);
-	free_tow_d(map);
-	str = copy_data(data);
-	is_valid(str, data->cor_ply.x, data->cor_ply.y, 'F');
-	if (check_path(map, 'F') == -1)
-		ft_error(4, data);
-	free_tow_d(str);
+	if (data->map && data->map[0])
+	{
+		check_map_wall(data);
+		check_into_map(data);
+		str = copy_data(data);
+		path_validate(str, data);
+		get_started_map(data);
+	}
 }
 
 int	main(int ac, char **av)
 {
 	t_long	data;
 	int		fd;
-	char	**str;
 	char	*tmp;
 
 	if (ac == 2)
 	{
+		// I need to check about the name of the map file should end with .ber
 		fd = open(av[1], O_RDONLY);
 		if (fd == -1)
-			ft_error(3, &data);
+			ft_error(3, NULL);
 		tmp = get_next_line(fd);
 		while (tmp != NULL)
 		{
@@ -70,17 +69,9 @@ int	main(int ac, char **av)
 			free(tmp);
 			tmp = get_next_line(fd);
 		}
-		if (tmp)
+		if (tmp != NULL)
 			free(tmp);
 		ft_get_map(av[1], &data);
-		if (data.map && data.map[0])
-		{
-			check_map_wall(&data);
-			check_into_map(&data);
-			str = copy_data(&data);
-			path_validate(str, &data);
-			get_started_map(&data);
-		}
-		return (0);
+		set_map(&data);
 	}
 }

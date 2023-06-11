@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 19:18:40 by otaraki           #+#    #+#             */
-/*   Updated: 2023/03/23 00:06:56 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/06/11 17:52:13 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,19 @@ void	check_map_wall(t_long *data)
 			}
 		}
 	}
+}
+
+void	path_validate(char **map, t_long *data)
+{
+	char	**str;
+
+	is_valid(map, data->cor_ply.x, data->cor_ply.y, 'E');
+	if (check_path(map, 'E') == -1)
+		ft_error(4, data);
+	free_tow_d(map);
+	str = copy_data(data);
+	is_valid(str, data->cor_ply.x, data->cor_ply.y, 'F');
+	if (check_path(map, 'F') == -1)
+		ft_error(4, data);
+	free_tow_d(str);
 }
