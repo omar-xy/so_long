@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 12:02:37 by otaraki           #+#    #+#             */
-/*   Updated: 2023/06/11 17:55:05 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/06/11 23:28:54 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	ft_get_map(char *av, t_long *data)
 		free(str);
 		i++;
 	}
+	data->map[i] = NULL;
 	free(str);
 	close(fd);
 }
@@ -56,10 +57,12 @@ int	main(int ac, char **av)
 	int		fd;
 	char	*tmp;
 
+
 	if (ac == 2)
 	{
 		// I need to check about the name of the map file should end with .ber
 		fd = open(av[1], O_RDONLY);
+
 		if (fd == -1)
 			ft_error(3, NULL);
 		tmp = get_next_line(fd);

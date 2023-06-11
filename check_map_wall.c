@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 19:18:40 by otaraki           #+#    #+#             */
-/*   Updated: 2023/06/11 17:52:13 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/06/11 23:27:18 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,11 @@ void	path_validate(char **map, t_long *data)
 
 	is_valid(map, data->cor_ply.x, data->cor_ply.y, 'E');
 	if (check_path(map, 'E') == -1)
-		ft_error(4, data);
+		ft_error(5, data);
 	free_tow_d(map);
 	str = copy_data(data);
-	is_valid(str, data->cor_ply.x, data->cor_ply.y, 'F');
-	if (check_path(map, 'F') == -1)
-		ft_error(4, data);
+	is_valid(str, data->cor_ply.x, data->cor_ply.y, 'C');
+	if (check_path(str, 'C') == -1)
+		ft_error(5, data);
 	free_tow_d(str);
 }

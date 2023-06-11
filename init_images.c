@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 15:46:46 by otaraki           #+#    #+#             */
-/*   Updated: 2023/06/11 21:38:51 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/06/11 23:50:14 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ void	init_images(t_images *img)
 {
 	img->wal = protec_img(img, "wallr.XPM");
 	img->col = protec_img(img, "bluecol.xpm");
-	img->player = protec_img(img, "Jump.xpm");
+	img->player_r = protec_img(img, "Jump.xpm");
+	img->player_l = protec_img(img, "left_jump.xpm");
 	img->exi = protec_img(img, "portal.xpm");
 	img->floor = protec_img(img, "bluefloor.XPM");
 }

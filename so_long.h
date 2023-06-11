@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 15:32:42 by otaraki           #+#    #+#             */
-/*   Updated: 2023/06/11 21:38:31 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/06/11 23:49:53 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,11 @@ typedef struct s_images
 	void	*exi;
 	void	*floor;
 	void	*col;
-	void	*player;
+	void	*player_r;
+	void	*player_l;
 	int		h;
 	int		w;
+	int		steps;	
 }				t_images;
 
 

@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:54:15 by otaraki           #+#    #+#             */
-/*   Updated: 2023/06/11 17:52:27 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/06/11 23:07:11 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ int	check_path(char **data, char c)
 		j = 0;
 		while (data[i][j])
 		{
-			if (data[i][j] != 'G' && data[i][j] != '1'
-				&& data[i][j] != c && data[i][j] != '0')
+			if (data[i][j] == c)
 				return (-1);
 			j++;
 		}
@@ -35,7 +34,7 @@ int	check_path(char **data, char c)
 
 void	is_valid(char **data, int x, int y, char c)
 {
-	if ((data[y][x]) != '1' && data[y][x] != 'G' && data[y][x] != c)
+	if ((data[y][x]) != '1' && data[y][x] != 'G')
 	{
 		data[y][x] = 'G';
 		is_valid(data, x + 1, y, c);

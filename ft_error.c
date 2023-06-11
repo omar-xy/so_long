@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 19:58:13 by otaraki           #+#    #+#             */
-/*   Updated: 2023/06/11 22:26:05 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/06/11 23:24:08 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	ft_error(int E, t_long	*data)
 		free_tow_d(data->map);
 		exit (0);
 	}
-	else
+	else if (E == 5)
 	{
 		write(2, "PATH INVALID\n", 13);
 		free_tow_d(data->map);

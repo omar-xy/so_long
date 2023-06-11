@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 17:27:23 by otaraki           #+#    #+#             */
-/*   Updated: 2023/06/11 17:55:38 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/06/11 22:56:57 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void	check_into_map(t_long *data)
 			j++;
 		}
 	}
+	
 	check_for_dup(data);
 	get_pos(data);
 }
