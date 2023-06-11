@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 19:58:13 by otaraki           #+#    #+#             */
-/*   Updated: 2023/06/10 17:09:58 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/06/11 22:26:05 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,11 @@ void	ft_error(int E, t_long	*data)
 	{
 		write(2, "cant open file\n", 15);
 		exit (1);
+	}
+	else if (E == 4)
+	{
+		free_tow_d(data->map);
+		exit (0);
 	}
 	else
 	{

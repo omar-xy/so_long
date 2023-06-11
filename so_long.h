@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 15:32:42 by otaraki           #+#    #+#             */
-/*   Updated: 2023/06/11 17:02:17 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/06/11 21:38:31 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,6 @@ void	init_images(t_images *img);
 void	init_win(t_images *img, t_long *data);
 int		ft_hook(int keycode, t_images *img);
 void	get_started_map(t_long *data);
+void	*protec_img(t_images *img, char *name_f);
 
 #endif

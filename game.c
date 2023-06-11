@@ -6,12 +6,11 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 19:40:11 by otaraki           #+#    #+#             */
-/*   Updated: 2023/06/11 17:24:05 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/06/11 21:23:10 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
 
 void	get_started_map(t_long *data)
 {

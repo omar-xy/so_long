@@ -6,46 +6,125 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 16:36:10 by otaraki           #+#    #+#             */
-/*   Updated: 2023/06/11 17:23:49 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/06/11 22:39:34 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	right_handle(t_images **img)
+void	right_handle(t_images *img)
 {
-	(void)img;
-	printf("right_handle\n");
+	if (img->data->map[img->data->cor_ply.y][img->data->cor_ply.x + 1] != '1')
+	{
+		if (img->data->map[img->data->cor_ply.y][img->data->cor_ply.x + 1] == 'C')
+		{
+			img->data->map[img->data->cor_ply.y][img->data->cor_ply.x + 1] = '0';
+			img->data->collec--;
+		}
+		if (img->data->map[img->data->cor_ply.y][img->data->cor_ply.x + 1] == 'E' && img->data->collec <= 0)
+		{
+			puts("BYE BYE RAK FAHEM A KHOUYA RAHI M9WDA");
+			ft_error(4, img->data);
+		}
+		else if (img->data->map[img->data->cor_ply.y][img->data->cor_ply.x + 1] != 'E')
+		{
+			mlx_put_image_to_window(img->mlx, img->win, img->floor, \
+				img->data->cor_ply.x * 61, img->data->cor_ply.y * 61);
+			mlx_put_image_to_window(img->mlx, img->win, img->player, \
+				(img->data->cor_ply.x + 1) * 61, img->data->cor_ply.y * 61);
+			img->data->cor_ply.x++;
+		}
+	}
 }
 
-void	left_handle(t_images **img)
+void	left_handle(t_images *img)
 {
-	(void)img;
-	printf("left_handle\n");
+	if (img->data->map[img->data->cor_ply.y][img->data->cor_ply.x - 1] != '1')
+	{
+		if (img->data->map[img->data->cor_ply.y][img->data->cor_ply.x - 1] == 'C')
+		{
+			img->data->map[img->data->cor_ply.y][img->data->cor_ply.x - 1] = '0';
+			img->data->collec--;
+		}
+		if (img->data->map[img->data->cor_ply.y][img->data->cor_ply.x - 1] == 'E' && img->data->collec <= 0)
+		{
+			puts("BYE BYE RAK FAHEM A KHOUYA RAHI M9WDA");
+			ft_error(4, img->data);
+		}
+		else if (img->data->map[img->data->cor_ply.y][img->data->cor_ply.x - 1] != 'E')
+		{
+			mlx_put_image_to_window(img->mlx, img->win, img->floor, \
+				img->data->cor_ply.x * 61, img->data->cor_ply.y * 61);
+			mlx_put_image_to_window(img->mlx, img->win, img->player, \
+				(img->data->cor_ply.x - 1) * 61, img->data->cor_ply.y * 61);
+			img->data->cor_ply.x--;
+		}
+	}
 }
 
-void	up_handle(t_images **img)
+void	up_handle(t_images *img)
 {
-	(void)img;
-	printf("up_handle\n");
+	if (img->data->map[img->data->cor_ply.y - 1][img->data->cor_ply.x] != '1')
+	{
+		if (img->data->map[img->data->cor_ply.y - 1][img->data->cor_ply.x] == 'C')
+		{
+			img->data->map[img->data->cor_ply.y - 1][img->data->cor_ply.x] = '0';
+			img->data->collec--;
+		}
+		if (img->data->map[img->data->cor_ply.y - 1][img->data->cor_ply.x] == 'E' && img->data->collec <= 0)
+		{
+			puts("BYE BYE RAK FAHEM A KHOUYA RAHI M9WDA");
+			ft_error(4, img->data);
+		}
+		else if (img->data->map[img->data->cor_ply.y - 1][img->data->cor_ply.x] != 'E')
+		{
+			mlx_put_image_to_window(img->mlx, img->win, img->floor, \
+				img->data->cor_ply.x * 61, img->data->cor_ply.y * 61);
+			mlx_put_image_to_window(img->mlx, img->win, img->player, \
+				img->data->cor_ply.x * 61, (img->data->cor_ply.y - 1) * 61);
+			img->data->cor_ply.y--;
+		}
+	}
 }
 
-void	down_handle(t_images **img)
+void	down_handle(t_images *img)
 {
-	(void)img;
-	printf("down_handle\n");
+	if (img->data->map[img->data->cor_ply.y + 1][img->data->cor_ply.x] != '1')
+	{
+		if (img->data->map[img->data->cor_ply.y + 1][img->data->cor_ply.x] == 'C')
+		{
+			img->data->map[img->data->cor_ply.y + 1][img->data->cor_ply.x] = '0';
+			img->data->collec--;
+		}
+		if (img->data->map[img->data->cor_ply.y + 1][img->data->cor_ply.x] == 'E' && img->data->collec <= 0)
+		{
+			puts("BYE BYE RAK FAHEM A KHOUYA RAHI M9WDA");
+			ft_error(4, img->data);
+		}
+		else if (img->data->map[img->data->cor_ply.y + 1][img->data->cor_ply.x] != 'E')
+		{
+			mlx_put_image_to_window(img->mlx, img->win, img->floor, \
+				img->data->cor_ply.x * 61, img->data->cor_ply.y * 61);
+			mlx_put_image_to_window(img->mlx, img->win, img->player, \
+				img->data->cor_ply.x * 61, (img->data->cor_ply.y + 1) * 61);
+			img->data->cor_ply.y++;
+		}
+	}
 }
 
 int	ft_hook(int keycode, t_images *img)
 {
 	if (keycode == 2 || keycode == 124)
-		right_handle(&img);
+		right_handle(img);
 	if (keycode == 0 || keycode == 123)
-		left_handle(&img);
+		left_handle(img);
 	if (keycode == 13 || keycode == 126)
-		up_handle(&img);
+		up_handle(img);
 	if (keycode == 1 || keycode == 125)
-		down_handle(&img);
-	printf("%d\n", keycode);
+		down_handle(img);
+	if (keycode == 53)
+	{
+		ft_error(4,img->data);
+	}
 	return (1);
 }
