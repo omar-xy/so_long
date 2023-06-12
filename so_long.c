@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 12:02:37 by otaraki           #+#    #+#             */
-/*   Updated: 2023/06/11 23:28:54 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/06/12 18:51:21 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	ft_get_map(char *av, t_long *data)
 	if (data->map == NULL)
 		return ;
 	fd = open(av, O_RDONLY);
+	if (fd == -1)
+		ft_error(2, data, "can't open file\n");
 	i = 0;
 	while (1)
 	{
@@ -37,10 +39,16 @@ void	ft_get_map(char *av, t_long *data)
 	close(fd);
 }
 
+void	tst(void)
+{
+	system("leaks so_long");
+}
+
 static void	set_map(t_long *data)
 {
 	char	**str;
 
+	atexit(tst);
 	if (data->map && data->map[0])
 	{
 		check_map_wall(data);
@@ -51,29 +59,33 @@ static void	set_map(t_long *data)
 	}
 }
 
-int	main(int ac, char **av)
+static void	calculate_height(t_long *data, char *av)
 {
-	t_long	data;
 	int		fd;
 	char	*tmp;
 
+	fd = open(av, O_RDONLY);
+	if (fd == -1)
+		ft_error(1, NULL, "can't open file");
+	tmp = get_next_line(fd);
+	while (tmp != NULL)
+	{
+		data->height++;
+		free(tmp);
+		tmp = get_next_line(fd);
+	}
+	if (tmp != NULL)
+		free(tmp);
+	close(fd);
+}
+
+int	main(int ac, char **av)
+{
+	t_long	data;
 
 	if (ac == 2)
 	{
-		// I need to check about the name of the map file should end with .ber
-		fd = open(av[1], O_RDONLY);
-
-		if (fd == -1)
-			ft_error(3, NULL);
-		tmp = get_next_line(fd);
-		while (tmp != NULL)
-		{
-			data.height++;
-			free(tmp);
-			tmp = get_next_line(fd);
-		}
-		if (tmp != NULL)
-			free(tmp);
+		calculate_height(&data, av[1]);
 		ft_get_map(av[1], &data);
 		set_map(&data);
 	}

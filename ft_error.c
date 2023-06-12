@@ -6,40 +6,30 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 19:58:13 by otaraki           #+#    #+#             */
-/*   Updated: 2023/06/11 23:24:08 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/06/12 18:46:08 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	ft_error(int E, t_long	*data)
+void	ft_error(int E, t_long	*data, char *str)
 {
 	if (E == 1)
 	{
-		write(2, "MAP NOT VALID\n", 14);
+		ft_putstr_fd(str, 2);
 		exit (1);
 	}
 	else if (E == 2)
 	{
-		write(2, "Invalid arguments in map\n", 25);
+		ft_putstr_fd(str, 2);
 		free_tow_d(data->map);
-		exit (1);
-	}
-	else if (E == 3)
-	{
-		write(2, "cant open file\n", 15);
 		exit (1);
 	}
 	else if (E == 4)
 	{
+		ft_putstr_fd(str, 1);
 		free_tow_d(data->map);
 		exit (0);
-	}
-	else if (E == 5)
-	{
-		write(2, "PATH INVALID\n", 13);
-		free_tow_d(data->map);
-		exit (1);
 	}
 }
 
