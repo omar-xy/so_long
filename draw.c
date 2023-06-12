@@ -6,42 +6,50 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 16:43:42 by otaraki           #+#    #+#             */
-/*   Updated: 2023/06/11 16:46:25 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/06/12 18:37:05 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	drawing(t_long *data, t_long *img)
+static void	image_to_window(t_images *img, void *typ1, void *typ2, int c)
 {
-	while (data->map[i])
+	if (c == 2)
 	{
-		h = 0;
+		mlx_put_image_to_window(img->mlx, img->win, typ1, img->h, img->w);
+		mlx_put_image_to_window(img->mlx, img->win, typ2, img->h, img->w);
+	}
+	else
+	{
+		mlx_put_image_to_window(img->mlx, img->win, typ1, img->h, img->w);
+	}
+}
+
+void	drawing(t_images *img)
+{
+	int	i;
+	int	j;
+
+	img->w = 0;
+	i = -1;
+	while (img->data->map[++i])
+	{
 		j = -1;
-		while (data->map[i][++j])
+		img->h = 0;
+		while (img->data->map[i][++j])
 		{
-			if (data->map[i][j] == '1')
-			{
-				mlx_put_image_to_window(img->mlx, img->win, img->floor, h, w);
-				mlx_put_image_to_window(img->mlx, img->win, img->wal, h, w);
-			}
-			else if (data->map[i][j] == 'C')
-				mlx_put_image_to_window(img->mlx, img->win, img->col, h, w);
-			else if (data->map[i][j] == 'E')
-			{
-				mlx_put_image_to_window(img->mlx, img->win, img->floor, h, w);
-				mlx_put_image_to_window(img->mlx, img->win, img->exi, h, w);
-			}
-			else if (data->map[i][j] == 'P')
-			{
-				mlx_put_image_to_window(img->mlx, img->win, img->floor, h, w);
-				mlx_put_image_to_window(img->mlx, img->win, img->player, h, w);
-			}
-			else if (data->map[i][j] == '0')
-				mlx_put_image_to_window(img->mlx, img->win, img->floor, h, w);
-			h += 61;
+			if (img->data->map[i][j] == '1')
+				image_to_window(img, img->floor, img->wal, 2);
+			else if (img->data->map[i][j] == 'C')
+				image_to_window(img, img->col, NULL, 1);
+			else if (img->data->map[i][j] == 'E')
+				image_to_window(img, img->floor, img->exi, 2);
+			else if (img->data->map[i][j] == 'P')
+				image_to_window(img, img->floor, img->pr_r, 2);
+			else if (img->data->map[i][j] == '0')
+				image_to_window(img, img->floor, NULL, 1);
+			img->h += 61;
 		}
-		w += 61;
-		i++;
+		img->w += 61;
 	}
 }

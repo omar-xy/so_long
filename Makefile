@@ -6,7 +6,7 @@
 #    By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/31 15:33:52 by otaraki           #+#    #+#              #
-#    Updated: 2023/06/11 17:49:58 by otaraki          ###   ########.fr        #
+#    Updated: 2023/06/12 18:20:01 by otaraki          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,9 +22,9 @@ INC = so_long.h \
 SRC = so_long.c \
 	game.c\
 	check_map_wall.c check_inside_map.c ch_path.c\
-	gnl/get_next_line.c \
-	gnl/get_next_line_utils.c\
-	ft_error.c init_images.c init_win.c hook.c\
+	g_n_l/get_next_line.c \
+	g_n_l/get_next_line_utils.c\
+	ft_error.c init_images.c init_win.c draw.c hook.c\
 
 OBJ = $(SRC:.c=.o)
 

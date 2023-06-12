@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 19:18:40 by otaraki           #+#    #+#             */
-/*   Updated: 2023/06/11 23:27:18 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/06/12 16:09:24 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@ void	check_map_wall(t_long *data)
 	while (data->map[++i])
 	{
 		if (data->map[i][0] != '1' || data->map[i][data->width - 1] != '1')
-			ft_error(1, data);
+			ft_error(1, data, "MAP NOT VALID\n");
 		if (i == 0 || i == (data->height - 1))
 		{
 			j = 0;
 			while (data->map[i][j])
 			{
 				if (data->map[i][j] != '1')
-					ft_error(1, data);
+					ft_error(1, data, "MAP NOT VALID\n");
 				j++;
 			}
 		}
@@ -40,13 +40,13 @@ void	path_validate(char **map, t_long *data)
 {
 	char	**str;
 
-	is_valid(map, data->cor_ply.x, data->cor_ply.y, 'E');
+	is_valid(map, data->c_p.x, data->c_p.y, 'E');
 	if (check_path(map, 'E') == -1)
-		ft_error(5, data);
+		ft_error(2, data, "MAP NOT VALID\n");
 	free_tow_d(map);
 	str = copy_data(data);
-	is_valid(str, data->cor_ply.x, data->cor_ply.y, 'C');
+	is_valid(str, data->c_p.x, data->c_p.y, 'C');
 	if (check_path(str, 'C') == -1)
-		ft_error(5, data);
+		ft_error(2, data, "MAP NOT VALID\n");
 	free_tow_d(str);
 }
