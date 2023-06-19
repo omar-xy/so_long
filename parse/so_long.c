@@ -6,11 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 12:02:37 by otaraki           #+#    #+#             */
-<<<<<<< HEAD:parse/so_long.c
-/*   Updated: 2023/06/19 20:06:55 by otaraki          ###   ########.fr       */
-=======
-/*   Updated: 2023/06/12 18:51:21 by otaraki          ###   ########.fr       */
->>>>>>> 42ae2ea5cc5d46a05e69fe4d054e1233ab2d158b:so_long.c
+/*   Updated: 2023/06/19 20:37:45 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,20 +39,10 @@ void	ft_get_map(char *av, t_long *data)
 	close(fd);
 }
 
-void	tst(void)
-{
-	system("leaks so_long");
-}
-
 static void	set_map(t_long *data)
 {
 	char	**str;
-<<<<<<< HEAD:parse/so_long.c
 	
-=======
-
-	atexit(tst);
->>>>>>> 42ae2ea5cc5d46a05e69fe4d054e1233ab2d158b:so_long.c
 	if (data->map && data->map[0])
 	{
 		check_map_wall(data);
@@ -76,11 +62,8 @@ static void	calculate_height(t_long *data, char *av)
 	if (fd == -1)
 		ft_error(1, NULL, "can't open file");
 	tmp = get_next_line(fd);
-<<<<<<< HEAD:parse/so_long.c
 	if (!tmp || !tmp[0])
 		ft_error(1, NULL, "MAP INVALID\n");
-=======
->>>>>>> 42ae2ea5cc5d46a05e69fe4d054e1233ab2d158b:so_long.c
 	while (tmp != NULL)
 	{
 		data->height++;
@@ -102,4 +85,6 @@ int	main(int ac, char **av)
 		ft_get_map(av[1], &data);
 		set_map(&data);
 	}
+	else
+		ft_putstr_fd("INVALD ARGUMENTS\n", 2);
 }

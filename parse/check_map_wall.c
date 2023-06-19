@@ -6,11 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 19:18:40 by otaraki           #+#    #+#             */
-<<<<<<< HEAD:parse/check_map_wall.c
-/*   Updated: 2023/06/19 20:06:48 by otaraki          ###   ########.fr       */
-=======
-/*   Updated: 2023/06/12 16:09:24 by otaraki          ###   ########.fr       */
->>>>>>> 42ae2ea5cc5d46a05e69fe4d054e1233ab2d158b:check_map_wall.c
+/*   Updated: 2023/06/19 20:35:08 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
