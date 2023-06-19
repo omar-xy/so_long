@@ -6,7 +6,11 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 15:46:46 by otaraki           #+#    #+#             */
+<<<<<<< HEAD:drawing/init_images.c
 /*   Updated: 2023/06/19 20:05:57 by otaraki          ###   ########.fr       */
+=======
+/*   Updated: 2023/06/12 18:55:06 by otaraki          ###   ########.fr       */
+>>>>>>> 42ae2ea5cc5d46a05e69fe4d054e1233ab2d158b:init_images.c
 /*                                                                            */
 /* ************************************************************************** */
 
