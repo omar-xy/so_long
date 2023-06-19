@@ -6,11 +6,11 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 17:27:23 by otaraki           #+#    #+#             */
-/*   Updated: 2023/06/12 16:17:35 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/06/19 20:06:39 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../inc/so_long.h"
 
 static	void	check_for_dup(t_long	*data)
 {

@@ -6,7 +6,7 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 15:32:42 by otaraki           #+#    #+#             */
-/*   Updated: 2023/06/12 18:25:20 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/06/19 20:11:34 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <mlx.h>
-# include "libft/libft.h"
-# include "g_n_l/get_next_line.h"
+# include "../libft/libft.h"
+# include "../g_n_l/get_next_line.h"
 
 typedef struct s_coord
 {
@@ -65,7 +65,7 @@ int		check_path(char **data, char c);
 char	**copy_data(t_long *data);
 void	path_validate(char **map, t_long *data);
 
-//
+//drawing functions
 void	get_started_map(t_long *data);
 void	init_images(t_images *img);
 void	init_win(t_images *img);

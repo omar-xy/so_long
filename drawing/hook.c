@@ -6,11 +6,11 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 16:36:10 by otaraki           #+#    #+#             */
-/*   Updated: 2023/06/12 16:12:20 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/06/19 20:05:54 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../inc/so_long.h"
 
 void	right_handle(t_images *img)
 {

@@ -6,11 +6,11 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 16:43:42 by otaraki           #+#    #+#             */
-/*   Updated: 2023/06/12 18:37:05 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/06/19 20:05:29 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../inc/so_long.h"
 
 static void	image_to_window(t_images *img, void *typ1, void *typ2, int c)
 {

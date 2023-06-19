@@ -1,20 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_win.c                                         :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/11 16:37:58 by otaraki           #+#    #+#             */
-/*   Updated: 2023/06/12 18:24:47 by otaraki          ###   ########.fr       */
+/*   Created: 2023/03/20 19:58:13 by otaraki           #+#    #+#             */
+/*   Updated: 2023/06/19 20:05:44 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../inc/so_long.h"
 
-void	init_win(t_images *img)
+void	ft_error(int E, t_long	*data, char *str)
 {
-	img->mlx = mlx_init();
-	img->win = mlx_new_window(img->mlx, img->data->width * 61,
-			img->data->height * 61, "THE WITCH");
+	if (E == 1)
+	{
+		ft_putstr_fd(str, 2);
+		exit (1);
+	}
+	else if (E == 2)
+	{
+		ft_putstr_fd(str, 2);
+		free_tow_d(data->map);
+		exit (1);
+	}
+	else if (E == 4)
+	{
+		ft_putstr_fd(str, 1);
+		free_tow_d(data->map);
+		exit (0);
+	}
+}
+
+void	free_tow_d(char **map)
+{
+	int	i;
+
+	i = 0;
+	while (map[i])
+	{
+		free(map[i]);
+		i++;
+	}
+	free(map);
 }

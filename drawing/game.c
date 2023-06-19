@@ -6,11 +6,11 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 19:40:11 by otaraki           #+#    #+#             */
-/*   Updated: 2023/06/12 18:39:15 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/06/19 20:05:49 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../inc/so_long.h"
 
 int	red_cross(int key)
 {

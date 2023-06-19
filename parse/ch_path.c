@@ -6,11 +6,11 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:54:15 by otaraki           #+#    #+#             */
-/*   Updated: 2023/06/11 23:07:11 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/06/19 20:06:35 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../inc/so_long.h"
 
 int	check_path(char **data, char c)
 {

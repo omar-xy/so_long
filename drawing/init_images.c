@@ -6,11 +6,11 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 15:46:46 by otaraki           #+#    #+#             */
-/*   Updated: 2023/06/12 18:55:06 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/06/19 20:05:57 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../inc/so_long.h"
 
 void	*protec_img(t_images *img, char *name_f)
 {

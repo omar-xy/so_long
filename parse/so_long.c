@@ -6,11 +6,11 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 12:02:37 by otaraki           #+#    #+#             */
-/*   Updated: 2023/06/12 18:51:21 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/06/19 20:06:55 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../inc/so_long.h"
 
 void	ft_get_map(char *av, t_long *data)
 {
@@ -39,16 +39,10 @@ void	ft_get_map(char *av, t_long *data)
 	close(fd);
 }
 
-void	tst(void)
-{
-	system("leaks so_long");
-}
-
 static void	set_map(t_long *data)
 {
 	char	**str;
-
-	atexit(tst);
+	
 	if (data->map && data->map[0])
 	{
 		check_map_wall(data);
@@ -68,6 +62,8 @@ static void	calculate_height(t_long *data, char *av)
 	if (fd == -1)
 		ft_error(1, NULL, "can't open file");
 	tmp = get_next_line(fd);
+	if (!tmp || !tmp[0])
+		ft_error(1, NULL, "MAP INVALID\n");
 	while (tmp != NULL)
 	{
 		data->height++;

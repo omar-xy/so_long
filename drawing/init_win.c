@@ -1,47 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   init_win.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/20 19:58:13 by otaraki           #+#    #+#             */
-/*   Updated: 2023/06/12 18:46:08 by otaraki          ###   ########.fr       */
+/*   Created: 2023/06/11 16:37:58 by otaraki           #+#    #+#             */
+/*   Updated: 2023/06/19 20:06:01 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../inc/so_long.h"
 
-void	ft_error(int E, t_long	*data, char *str)
+void	init_win(t_images *img)
 {
-	if (E == 1)
-	{
-		ft_putstr_fd(str, 2);
-		exit (1);
-	}
-	else if (E == 2)
-	{
-		ft_putstr_fd(str, 2);
-		free_tow_d(data->map);
-		exit (1);
-	}
-	else if (E == 4)
-	{
-		ft_putstr_fd(str, 1);
-		free_tow_d(data->map);
-		exit (0);
-	}
-}
-
-void	free_tow_d(char **map)
-{
-	int	i;
-
-	i = 0;
-	while (map[i])
-	{
-		free(map[i]);
-		i++;
-	}
-	free(map);
+	img->mlx = mlx_init();
+	img->win = mlx_new_window(img->mlx, img->data->width * 61,
+			img->data->height * 61, "THE WITCH");
 }

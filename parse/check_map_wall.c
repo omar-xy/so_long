@@ -6,11 +6,11 @@
 /*   By: otaraki <otaraki@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 19:18:40 by otaraki           #+#    #+#             */
-/*   Updated: 2023/06/12 16:09:24 by otaraki          ###   ########.fr       */
+/*   Updated: 2023/06/19 20:06:48 by otaraki          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../inc/so_long.h"
 
 void	check_map_wall(t_long *data)
 {
@@ -21,6 +21,8 @@ void	check_map_wall(t_long *data)
 	data->width = ft_strlen(data->map[0]);
 	while (data->map[++i])
 	{
+		if ((int)ft_strlen(data->map[i]) != data->width)
+			ft_error(1, data, "MAP NOT VALID\n");
 		if (data->map[i][0] != '1' || data->map[i][data->width - 1] != '1')
 			ft_error(1, data, "MAP NOT VALID\n");
 		if (i == 0 || i == (data->height - 1))
